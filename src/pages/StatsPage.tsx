@@ -1,14 +1,23 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import { PageShell } from "../components/layout/PageShell";
 import { PlayoffBracket } from "../components/standings/PlayoffBracket";
 import { StandingsTable } from "../components/standings/StandingsTable";
 import { FeaturedPlayerCard } from "../components/stats/FeaturedPlayerCard";
 import { PlayerLeaders } from "../components/stats/PlayerLeaders";
-import {
-  TeamPpgChart,
-  WinProbabilityChart,
-} from "../components/stats/WinProbabilityChart";
 import { getStandingsGroups } from "../lib/data";
+
+const AnalyticsCharts = lazy(() =>
+  import("../components/stats/WinProbabilityChart").then((module) => ({
+    default: function AnalyticsCharts() {
+      return (
+        <div className="space-y-4">
+          <module.WinProbabilityChart />
+          <module.TeamPpgChart />
+        </div>
+      );
+    },
+  })),
+);
 
 const tabs = ["Standings", "Players", "Analytics"] as const;
 type Tab = (typeof tabs)[number];
@@ -73,10 +82,15 @@ export function StatsPage() {
       )}
 
       {activeTab === "Analytics" && (
-        <div className="space-y-4">
-          <WinProbabilityChart />
-          <TeamPpgChart />
-        </div>
+        <Suspense
+          fallback={
+            <div className="rounded-2xl border border-[var(--border)] p-8 text-center text-sm text-[var(--text-muted)]">
+              Loading charts…
+            </div>
+          }
+        >
+          <AnalyticsCharts />
+        </Suspense>
       )}
     </PageShell>
   );

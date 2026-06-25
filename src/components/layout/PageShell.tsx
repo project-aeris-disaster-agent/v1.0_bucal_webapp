@@ -7,11 +7,15 @@ type PageShellProps = {
   children: ReactNode;
   title?: string;
   titleAction?: ReactNode;
+  liveUi?: boolean;
 };
 
-export function PageShell({ children, title, titleAction }: PageShellProps) {
+export function PageShell({ children, title, titleAction, liveUi }: PageShellProps) {
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[var(--bg)] pb-bottom-chrome">
+    <div
+      className="relative min-h-screen overflow-hidden bg-[var(--bg)] pb-bottom-chrome"
+      data-live-ui={liveUi ? "true" : undefined}
+    >
       <PageBackground />
 
       <div className="relative z-10">

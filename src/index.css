@@ -10,10 +10,11 @@
   --accent-foreground: #121212;
   --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   --bottom-nav-height: 3.625rem;
+  --bottom-footer-height: 3rem;
   --bottom-banner-height: calc(min(100vw, 32rem) * 90 / 728);
   --bottom-chrome-height: calc(
-    var(--bottom-nav-height) + var(--bottom-banner-height) +
-      env(safe-area-inset-bottom, 0px)
+    var(--bottom-nav-height) + var(--bottom-footer-height) +
+      var(--bottom-banner-height) + env(safe-area-inset-bottom, 0px)
   );
 }
 
@@ -121,20 +122,58 @@ body {
   }
 }
 
-.animate-live-border {
+[data-live-ui="true"] .animate-live-border {
   animation: live-border-glow 2.5s ease-in-out infinite;
 }
 
-.animate-score-glow {
+[data-live-ui="true"] .animate-score-glow {
   animation: score-glow 2s ease-in-out infinite;
 }
 
-.animate-live-dot {
+[data-live-ui="true"] .animate-live-dot {
   animation: live-dot 1.2s ease-in-out infinite;
 }
 
-.animate-live-shimmer {
+[data-live-ui="true"] .animate-live-shimmer {
   animation: live-shimmer 3s ease-in-out infinite;
+}
+
+[data-live-ui="true"] .watch-live-btn {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border-color: rgba(239, 68, 68, 0.55);
+  color: #fca5a5;
+  animation: watch-live-glow 2s ease-in-out infinite;
+}
+
+[data-live-ui="true"] .watch-live-btn:hover {
+  color: #fecaca;
+}
+
+[data-live-ui="true"] .watch-live-btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  border: 1px solid rgba(239, 68, 68, 0.5);
+  animation: watch-live-ring 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  [data-live-ui="true"] .animate-live-border,
+  [data-live-ui="true"] .animate-score-glow,
+  [data-live-ui="true"] .animate-live-dot,
+  [data-live-ui="true"] .animate-live-shimmer,
+  [data-live-ui="true"] .watch-live-btn,
+  [data-live-ui="true"] .watch-live-btn::before {
+    animation: none !important;
+  }
 }
 
 @keyframes watch-live-glow {
@@ -174,19 +213,5 @@ body {
   overflow: hidden;
   border-color: rgba(239, 68, 68, 0.55);
   color: #fca5a5;
-  animation: watch-live-glow 2s ease-in-out infinite;
-}
-
-.watch-live-btn:hover {
-  color: #fecaca;
-}
-
-.watch-live-btn::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  border: 1px solid rgba(239, 68, 68, 0.5);
-  animation: watch-live-ring 2s ease-out infinite;
-  pointer-events: none;
+  background-color: rgba(239, 68, 68, 0.1);
 }

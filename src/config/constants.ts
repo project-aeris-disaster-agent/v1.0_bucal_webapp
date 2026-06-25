@@ -4,9 +4,13 @@ export const APP_TAGLINE =
 
 export const BUCAL_LOGO_SRC = "/media/bucal_logo.svg";
 
-export const BUCAL_BACKGROUND_SRC = "/media/bucal_background.svg";
+export const BUCAL_BACKGROUND_SRC = "/media/bucal_background.webp";
+
+export const BUCAL_BACKGROUND_MOBILE_SRC = "/media/bucal_background_mobile.webp";
 
 export const BANNER_AD_SRC = "/media/ads/ads_v1_2026.gif";
+
+export const BANNER_AD_STATIC_SRC = "/media/ads/ads_v1_2026.webp";
 
 export const REQUEST_TICKETS_URL =
   "https://requesttix.live/events/6BhJ6i7seKdY8SyNXu9q";

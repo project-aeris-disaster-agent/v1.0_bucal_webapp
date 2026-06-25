@@ -20,7 +20,7 @@ export function MatchesPage() {
   const previewGroup = groups[0];
 
   return (
-    <PageShell title="Matches" titleAction={<WatchBadge />}>
+    <PageShell title="Matches" titleAction={<WatchBadge />} liveUi>
       <section className="mb-6">
         {liveMatches.length > 0 ? (
           <>

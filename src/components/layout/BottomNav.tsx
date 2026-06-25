@@ -1,6 +1,7 @@
 import { BarChart3, Home, Radio, Ticket, Trophy } from "lucide-react";
 import { NavLink } from "react-router-dom";
 import { BannerAd } from "./BannerAd";
+import { Footer } from "./Footer";
 
 const navItems = [
   { to: "/", label: "Home", icon: Home, end: true },
@@ -14,7 +15,7 @@ export function BottomNav() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-50 pb-[env(safe-area-inset-bottom)]">
       <BannerAd />
-      <nav className="border-t border-[var(--border)] bg-[var(--bg)]/95 backdrop-blur-md">
+      <nav className="border-t border-[var(--border)] bg-[var(--bg)] md:bg-[var(--bg)]/95 md:backdrop-blur-md">
         <div className="mx-auto grid max-w-lg grid-cols-5 px-1 py-2">
         {navItems.map(({ to, label, icon: Icon, end }) => (
           <NavLink
@@ -35,6 +36,7 @@ export function BottomNav() {
         ))}
         </div>
       </nav>
+      <Footer />
     </div>
   );
 }

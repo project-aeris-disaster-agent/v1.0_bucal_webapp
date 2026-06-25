@@ -17,8 +17,13 @@ export function AnimatedShaderBackground({
 
     const scene = new THREE.Scene();
     const camera = new THREE.OrthographicCamera(-1, 1, 1, -1, 0, 1);
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    const isMobile =
+      window.matchMedia("(hover: none) and (pointer: coarse)").matches;
+    const renderer = new THREE.WebGLRenderer({
+      antialias: !isMobile,
+      alpha: true,
+    });
+    renderer.setPixelRatio(isMobile ? 1 : Math.min(window.devicePixelRatio, 2));
 
     const setSize = () => {
       const { width, height } = container.getBoundingClientRect();
@@ -122,18 +127,28 @@ export function AnimatedShaderBackground({
     setSize();
 
     let frameId = 0;
+    let running = !document.hidden;
+
     const animate = () => {
-      material.uniforms.iTime.value += 0.016;
-      renderer.render(scene, camera);
+      if (running) {
+        material.uniforms.iTime.value += 0.016;
+        renderer.render(scene, camera);
+      }
       frameId = requestAnimationFrame(animate);
     };
     animate();
+
+    const handleVisibility = () => {
+      running = !document.hidden;
+    };
+    document.addEventListener("visibilitychange", handleVisibility);
 
     const resizeObserver = new ResizeObserver(setSize);
     resizeObserver.observe(container);
 
     return () => {
       cancelAnimationFrame(frameId);
+      document.removeEventListener("visibilitychange", handleVisibility);
       resizeObserver.disconnect();
       container.removeChild(renderer.domElement);
       geometry.dispose();

@@ -8,7 +8,7 @@ export const teams: Team[] = [
     school: "Bicol University",
     seed: 1,
     color: "#C8102E",
-    logo: "/media/school_logo/9.svg",
+    logo: "/media/school_logo/9.webp",
     form: ["W", "W", "W", "L", "W"],
   },
   {
@@ -18,7 +18,7 @@ export const teams: Team[] = [
     school: "Ateneo de Naga University",
     seed: 2,
     color: "#003DA5",
-    logo: "/media/school_logo/10.svg",
+    logo: "/media/school_logo/10.webp",
     form: ["W", "L", "W", "W", "W"],
   },
   {
@@ -28,7 +28,7 @@ export const teams: Team[] = [
     school: "Camarines Sur Polytechnic Colleges",
     seed: 3,
     color: "#006747",
-    logo: "/media/school_logo/11.svg",
+    logo: "/media/school_logo/11.webp",
     form: ["L", "W", "W", "D", "W"],
   },
   {
@@ -38,7 +38,7 @@ export const teams: Team[] = [
     school: "Central Bicol State University of Agriculture",
     seed: 4,
     color: "#FFD100",
-    logo: "/media/school_logo/12.svg",
+    logo: "/media/school_logo/12.webp",
     form: ["W", "W", "L", "W", "L"],
   },
   {
@@ -48,7 +48,7 @@ export const teams: Team[] = [
     school: "Partido State University",
     seed: 5,
     color: "#582C83",
-    logo: "/media/school_logo/13.svg",
+    logo: "/media/school_logo/13.webp",
     form: ["L", "W", "L", "W", "W"],
   },
   {
@@ -58,7 +58,7 @@ export const teams: Team[] = [
     school: "Camarines Norte State College",
     seed: 6,
     color: "#00843D",
-    logo: "/media/school_logo/14.svg",
+    logo: "/media/school_logo/14.webp",
     form: ["W", "L", "W", "L", "D"],
   },
   {

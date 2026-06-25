@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { Sparkles, Trophy, User, Vote } from "lucide-react";
 import { useVotePoints } from "../../context/VotePointsContext";
 import { getVoteSummary, VOTE_REWARD_POINTS } from "../../lib/voteStorage";
@@ -7,7 +7,7 @@ export function ProfileMenu() {
   const { points } = useVotePoints();
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
-  const summary = getVoteSummary();
+  const summary = useMemo(() => getVoteSummary(), [points]);
 
   useEffect(() => {
     if (!open) return;

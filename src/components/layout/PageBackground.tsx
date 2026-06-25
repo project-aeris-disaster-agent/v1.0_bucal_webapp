@@ -1,18 +1,45 @@
-import { BUCAL_BACKGROUND_SRC } from "../../config/constants";
-import { AnimatedShaderBackground } from "../ui/animated-shader-background";
+import { lazy, Suspense } from "react";
+import { BUCAL_BACKGROUND_MOBILE_SRC, BUCAL_BACKGROUND_SRC } from "../../config/constants";
+import { useMobilePerformance } from "../../lib/useMobilePerformance";
+
+const AnimatedShaderBackground = lazy(
+  () => import("../ui/animated-shader-background"),
+);
 
 export function PageBackground() {
+  const { reduceGpuEffects } = useMobilePerformance();
+  const showShader = !reduceGpuEffects;
+
   return (
     <div
       aria-hidden
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[var(--bg)]"
     >
-      <AnimatedShaderBackground />
-      <img
-        src={BUCAL_BACKGROUND_SRC}
-        alt=""
-        className="absolute inset-0 h-full w-full object-cover object-center opacity-35 mix-blend-soft-light"
-      />
+      {showShader ? (
+        <Suspense fallback={null}>
+          <AnimatedShaderBackground />
+        </Suspense>
+      ) : (
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(163,255,0,0.12),transparent_55%),radial-gradient(ellipse_at_70%_80%,rgba(163,255,0,0.06),transparent_50%)]" />
+      )}
+
+      {!reduceGpuEffects ? (
+        <picture>
+          <source
+            media="(min-width: 768px)"
+            srcSet={BUCAL_BACKGROUND_SRC}
+            type="image/webp"
+          />
+          <img
+            src={BUCAL_BACKGROUND_MOBILE_SRC}
+            alt=""
+            className="absolute inset-0 h-full w-full object-cover object-center opacity-35 md:opacity-40"
+            decoding="async"
+            fetchPriority="low"
+          />
+        </picture>
+      ) : null}
+
       <div className="absolute inset-0 bg-[var(--bg)]/50" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_35%,var(--bg)_90%)]" />
     </div>

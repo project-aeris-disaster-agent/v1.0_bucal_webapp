@@ -29,7 +29,10 @@ export function LandingPage() {
   );
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-[var(--bg)] pb-bottom-chrome">
+    <div
+      className="relative min-h-screen overflow-hidden bg-[var(--bg)] pb-bottom-chrome"
+      data-live-ui="true"
+    >
       <PageBackground />
 
       <div className="relative z-10">

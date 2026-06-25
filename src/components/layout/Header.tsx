@@ -8,7 +8,7 @@ export function Header() {
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--bg)]/90 backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-[var(--border)] bg-[var(--bg)] md:bg-[var(--bg)]/90 md:backdrop-blur-md">
       <div className="mx-auto flex max-w-lg items-center justify-between px-4 py-3">
         <Link to="/" className="flex items-center gap-3">
           <img

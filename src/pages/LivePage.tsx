@@ -9,7 +9,7 @@ export function LivePage() {
   const liveMatch = getLiveMatch();
 
   return (
-    <PageShell title="Watch Live">
+    <PageShell title="Watch Live" liveUi>
       <div className="mb-4 flex items-center gap-2">
         <Badge variant="live">Live</Badge>
         <span className="text-sm text-[var(--text-muted)]">
