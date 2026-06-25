@@ -1,0 +1,87 @@
+import type { Team } from "./types";
+
+export const teams: Team[] = [
+  {
+    id: "bu",
+    name: "Bicol University",
+    abbreviation: "BU",
+    school: "Bicol University",
+    seed: 1,
+    color: "#C8102E",
+    logo: "/media/school_logo/9.svg",
+    form: ["W", "W", "W", "L", "W"],
+  },
+  {
+    id: "adnu",
+    name: "Ateneo de Naga",
+    abbreviation: "ADNU",
+    school: "Ateneo de Naga University",
+    seed: 2,
+    color: "#003DA5",
+    logo: "/media/school_logo/10.svg",
+    form: ["W", "L", "W", "W", "W"],
+  },
+  {
+    id: "cspc",
+    name: "CSPC",
+    abbreviation: "CSPC",
+    school: "Camarines Sur Polytechnic Colleges",
+    seed: 3,
+    color: "#006747",
+    logo: "/media/school_logo/11.svg",
+    form: ["L", "W", "W", "D", "W"],
+  },
+  {
+    id: "cbsua",
+    name: "CBSUA",
+    abbreviation: "CBSUA",
+    school: "Central Bicol State University of Agriculture",
+    seed: 4,
+    color: "#FFD100",
+    logo: "/media/school_logo/12.svg",
+    form: ["W", "W", "L", "W", "L"],
+  },
+  {
+    id: "partido",
+    name: "Partido State",
+    abbreviation: "PSC",
+    school: "Partido State University",
+    seed: 5,
+    color: "#582C83",
+    logo: "/media/school_logo/13.svg",
+    form: ["L", "W", "L", "W", "W"],
+  },
+  {
+    id: "camarines-norte",
+    name: "CNSC",
+    abbreviation: "CNSC",
+    school: "Camarines Norte State College",
+    seed: 6,
+    color: "#00843D",
+    logo: "/media/school_logo/14.svg",
+    form: ["W", "L", "W", "L", "D"],
+  },
+  {
+    id: "catanduanes",
+    name: "CatSU",
+    abbreviation: "CatSU",
+    school: "Catanduanes State University",
+    seed: 7,
+    color: "#003087",
+    form: ["L", "L", "W", "W", "L"],
+  },
+  {
+    id: "sorsogon",
+    name: "Sorsogon State",
+    abbreviation: "SSU",
+    school: "Sorsogon State University",
+    seed: 8,
+    color: "#E87722",
+    form: ["W", "D", "L", "W", "W"],
+  },
+];
+
+export const teamMap = Object.fromEntries(teams.map((t) => [t.id, t])) as Record<
+  string,
+  Team
+>;
