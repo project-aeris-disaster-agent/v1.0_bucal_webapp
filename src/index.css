@@ -171,7 +171,9 @@ body {
   [data-live-ui="true"] .animate-live-dot,
   [data-live-ui="true"] .animate-live-shimmer,
   [data-live-ui="true"] .watch-live-btn,
-  [data-live-ui="true"] .watch-live-btn::before {
+  [data-live-ui="true"] .watch-live-btn::before,
+  .bottom-nav-live-icon,
+  .animate-live-dot {
     animation: none !important;
   }
 }
@@ -214,4 +216,42 @@ body {
   border-color: rgba(239, 68, 68, 0.55);
   color: #fca5a5;
   background-color: rgba(239, 68, 68, 0.1);
+}
+
+.bottom-nav-live-icon {
+  background-color: rgba(239, 68, 68, 0.14);
+  box-shadow:
+    0 0 0 1px rgba(239, 68, 68, 0.35),
+    0 0 14px rgba(239, 68, 68, 0.22);
+  animation: bottom-nav-live-glow 2s ease-in-out infinite;
+}
+
+.bottom-nav-live--active .bottom-nav-live-icon {
+  background-color: rgba(239, 68, 68, 0.24);
+  box-shadow:
+    0 0 0 1px rgba(239, 68, 68, 0.65),
+    0 0 20px rgba(239, 68, 68, 0.4);
+}
+
+.bottom-nav-live--active span:last-child {
+  color: #fecaca;
+}
+
+@keyframes bottom-nav-live-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 0 1px rgba(239, 68, 68, 0.35),
+      0 0 14px rgba(239, 68, 68, 0.22);
+  }
+
+  50% {
+    box-shadow:
+      0 0 0 1px rgba(239, 68, 68, 0.6),
+      0 0 22px rgba(239, 68, 68, 0.38);
+  }
+}
+
+.animate-live-dot {
+  animation: live-dot 1.2s ease-in-out infinite;
 }
