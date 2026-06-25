@@ -10,7 +10,7 @@
   --accent-foreground: #121212;
   --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
   --bottom-nav-height: 3.625rem;
-  --bottom-banner-height: calc(100vw * 90 / 728);
+  --bottom-banner-height: calc(min(100vw, 32rem) * 90 / 728);
   --bottom-chrome-height: calc(
     var(--bottom-nav-height) + var(--bottom-banner-height) +
       env(safe-area-inset-bottom, 0px)

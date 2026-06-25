@@ -3,7 +3,7 @@ import { BANNER_AD_SRC } from "../../config/constants";
 export function BannerAd() {
   return (
     <div
-      className="w-full bg-transparent"
+      className="mx-auto w-full max-w-lg bg-transparent"
       style={{ aspectRatio: "728 / 90" }}
     >
       <img

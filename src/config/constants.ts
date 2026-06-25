@@ -8,7 +8,8 @@ export const BUCAL_BACKGROUND_SRC = "/media/bucal_background.svg";
 
 export const BANNER_AD_SRC = "/media/ads/ads_v1_2026.gif";
 
-export const REQUEST_TICKETS_URL = "https://requesttix.live/";
+export const REQUEST_TICKETS_URL =
+  "https://requesttix.live/events/6BhJ6i7seKdY8SyNXu9q";
 
 export const LIVE_YOUTUBE_VIDEO_ID = "OO_mGiQ_HJM";
 
