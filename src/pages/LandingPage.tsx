@@ -61,10 +61,17 @@ export function LandingPage() {
               </Link>
               <Link
                 to="/live"
-                className="inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--bg-elevated)] px-5 py-3 text-sm font-bold uppercase tracking-wide text-[var(--text)] transition-colors hover:bg-[var(--border)]"
+                className="watch-live-btn inline-flex items-center justify-center gap-2 rounded-xl border px-5 py-3 text-sm font-bold uppercase tracking-wide transition-transform hover:brightness-110 active:scale-[0.98]"
               >
-                <Radio size={16} />
-                Watch Live
+                <span
+                  aria-hidden
+                  className="pointer-events-none absolute inset-y-0 -left-full w-full animate-live-shimmer bg-gradient-to-r from-transparent via-red-500/25 to-transparent"
+                />
+                <span className="relative z-10 inline-flex items-center gap-2">
+                  <span className="relative inline-flex h-2 w-2 shrink-0 animate-live-dot rounded-full bg-red-500 shadow-[0_0_8px_rgba(239,68,68,0.8)]" />
+                  <Radio size={16} className="text-red-400" />
+                  Watch Live
+                </span>
               </Link>
             </div>
           </div>
