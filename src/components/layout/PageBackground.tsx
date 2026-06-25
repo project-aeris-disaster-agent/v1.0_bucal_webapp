@@ -7,23 +7,19 @@ const AnimatedShaderBackground = lazy(
 );
 
 export function PageBackground() {
-  const { reduceGpuEffects } = useMobilePerformance();
-  const showShader = !reduceGpuEffects;
+  const { isCoarsePointer } = useMobilePerformance();
+  const showBackgroundImage = !isCoarsePointer;
 
   return (
     <div
       aria-hidden
       className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[var(--bg)]"
     >
-      {showShader ? (
-        <Suspense fallback={null}>
-          <AnimatedShaderBackground />
-        </Suspense>
-      ) : (
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_30%_20%,rgba(163,255,0,0.12),transparent_55%),radial-gradient(ellipse_at_70%_80%,rgba(163,255,0,0.06),transparent_50%)]" />
-      )}
+      <Suspense fallback={null}>
+        <AnimatedShaderBackground />
+      </Suspense>
 
-      {!reduceGpuEffects ? (
+      {showBackgroundImage ? (
         <picture>
           <source
             media="(min-width: 768px)"
